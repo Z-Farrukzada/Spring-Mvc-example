@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: zaur
+      changes:
+        - createTable:
+            tableName: due_entity
+            columns:
+              - column:
+                  name: due_id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: my_data
+                  type: Date
+              - column:
+                  name: recurring
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: my_string
+                  type: varchar(150)
+
+  - changeSet:
+      id: liquebase-default-insert-01
+      author: zaur
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: due_id
+                  value: '1'
+              - column:
+                  name: my_data
+                  value: '2021-04-03'
+              - column:
+                  name: recurring
+                  value: false
+              - column:
+                  name: my_string
+                  value: 'new string1'
+            schemaName: public
+            tableName: due_entity
+

@@ -1,0 +1,83 @@
+databaseChangeLog:
+  -  changeSet:
+       id: 3
+       author: zaur
+       changes:
+         -  createTable:
+              tableName: project_entity
+              columns:
+                -  column:
+                     name: project_id
+                     type: SERIAL
+                     autoIncrement: true
+                     constraints:
+                       primaryKey: true
+                       nullable: false
+                -  column:
+                     name: name
+                     type: varchar(255)
+                -  column:
+                     name: comment_count
+                     type: INTEGER
+                     constraints:
+                       nullable: false
+                -  column:
+                     name: orderdata
+                     type: INTEGER
+                -  column:
+                     name: color
+                     type: INTEGER
+                -  column:
+                     name: shared
+                     type: BOOLEAN
+                -  column:
+                     name: favorite
+                     type: BOOLEAN
+                -  column:
+                     name: team_inbox
+                     type: BOOLEAN
+                -  column:
+                     name: inbox_project
+                     type: BOOLEAN
+                -  column:
+                     name: url
+                     type: varchar(255)
+
+  - changeSet:
+      id: liquebase-default-insert-03
+      author: zaur
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: project_id
+                  value: '1'
+              - column:
+                  name: name
+                  value: 'default project'
+              - column:
+                  name: comment_count
+                  value: '3'
+              - column:
+                  name: orderdata
+                  value: '5'
+              - column:
+                  name: color
+                  value: '1'
+              - column:
+                  name: shared
+                  value: false
+              - column:
+                  name: favorite
+                  value: false
+              - column:
+                  name: team_inbox
+                  value: false
+              - column:
+                  name: inbox_project
+                  value: false
+              - column:
+                  name: url
+                  value: 'https://youtube.com'
+            schemaName: public
+            tableName: project_entity

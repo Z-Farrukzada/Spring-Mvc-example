@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: zaur
+      changes:
+        - createTable:
+            tableName: label_entity
+            columns:
+              - column:
+                  name: label_id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: color
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data
+                  type: INTEGER
+              - column:
+                  name: favorite
+                  type: BOOLEAN
+
+  - changeSet:
+      id: liquebase-default-insert-02
+      author: zaur
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: label_id
+                  value: '1'
+              - column:
+                  name: name
+                  value: 'default label'
+              - column:
+                  name: color
+                  value: '3'
+              - column:
+                  name: data
+                  value: '5'
+              - column:
+                  name: favorite
+                  value: true
+            schemaName: public
+            tableName: label_entity

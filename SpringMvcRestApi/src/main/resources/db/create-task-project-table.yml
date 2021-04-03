@@ -1,0 +1,40 @@
+databaseChangeLog:
+  -  changeSet:
+       id: 6
+       author: zaur
+       changes:
+         -  createTable:
+              tableName: task_project
+              columns:
+                -  column:
+                     name: id
+                     type: SERIAL
+                     autoIncrement: true
+                     constraints:
+                       primaryKey: true
+                       nullable: false
+                -  column:
+                     name: task_id
+                     type: INTEGER
+                -  column:
+                     name: project_id
+                     type: INTEGER
+
+
+  - changeSet:
+      id: liquebase-default-insert-05
+      author: zaur
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: '1'
+              - column:
+                  name: task_id
+                  value: '1'
+              - column:
+                  name: project_id
+                  value: '1'
+            schemaName: public
+            tableName: task_project

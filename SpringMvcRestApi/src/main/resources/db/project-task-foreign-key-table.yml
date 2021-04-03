@@ -1,0 +1,24 @@
+databaseChangeLog:
+
+  - changeSet:
+      id:  addForeignKeyConstraint-03
+      author:  zaur
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  task_id
+             baseTableName:  task_project
+             constraintName:  fk_task_project
+             referencedColumnNames:  task_id
+             referencedTableName:  task_entity
+             validate:  true
+  - changeSet:
+      id: addForeignKeyConstraint-04
+      author: zaur
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: project_id
+            baseTableName: task_project
+            constraintName: fk_project_task
+            referencedColumnNames: project_id
+            referencedTableName: project_entity
+            validate: true
