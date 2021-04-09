@@ -23,27 +23,27 @@ public class TaskController {
     private final TaskService taskService;
 
     @GetMapping
-    private List<TaskDTO> getAllTasks(){
+    private List<TaskDTO> getAllTasks() {
         return taskService.getAlTask();
     }
 
     @GetMapping("/{taskId}")
-    public Optional<TaskDTO> getById(@PathVariable("taskId") Long taskId){
+    public Optional<TaskDTO> getById(@PathVariable("taskId") Long taskId) {
         return taskService.getById(taskId);
     }
 
     @PostMapping("/create")
-    public TaskDTO save(@RequestBody TaskDTO taskDTO){
+    public TaskDTO save(@RequestBody TaskDTO taskDTO) {
         return taskService.save(taskDTO);
     }
 
     @PutMapping("/update/{taskId}")
-    public Optional<TaskDTO> update(@PathVariable("taskId") Long taskId, @RequestBody TaskDTO taskDTO){
-        return taskService.update(taskId,taskDTO);
+    public Optional<TaskDTO> update(@PathVariable("taskId") Long taskId, @RequestBody TaskDTO taskDTO) {
+        return taskService.update(taskId, taskDTO);
     }
 
     @DeleteMapping("/{taskId}")
-    public void delete(@PathVariable("taskId") Long taskId){
+    public void delete(@PathVariable("taskId") Long taskId) {
         taskService.deleteById(taskId);
     }
 }

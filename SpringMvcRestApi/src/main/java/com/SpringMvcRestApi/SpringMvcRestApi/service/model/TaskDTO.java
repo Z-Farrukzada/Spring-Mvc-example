@@ -36,8 +36,8 @@ public class TaskDTO {
     private Integer priority;
 
 
-    private DueEntity due;
-    private List<ProjectEntity> project;
-    private List<LabelEntity> labels;
+    private DuePreviewDTO due;
+    private List<ProjectPreviewDTO> project;
+    private List<LabelPreviewDTO> labels;
 
 }
