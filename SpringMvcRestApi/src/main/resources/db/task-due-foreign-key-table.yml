@@ -1,0 +1,13 @@
+databaseChangeLog:
+
+  - changeSet:
+      id:  addForeignKeyConstraint-05
+      author:  zaur
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  due_id
+             baseTableName:  task_entity
+             constraintName:  fk_task_due
+             referencedColumnNames:  due_id
+             referencedTableName:  due_entity
+             validate:  true

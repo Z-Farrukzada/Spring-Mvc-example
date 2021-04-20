@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: db/create-due_entity-table.yml
+  - include:
+      file: db/create-label_entity-table.yml
+  - include:
+      file: db/create-project_entity-table.yml
+  - include:
+      file: db/create-task-label-table.yml
+  - include:
+      file: db/create-task_entity-table.yml
+  - include:
+      file: db/create-task-project-table.yml
+  - include:
+      file: db/label-task-foreign-key-table.yml
+  - include:
+      file: db/project-task-foreign-key-table.yml
+  - include:
+      file: db/task-due-foreign-key-table.yml

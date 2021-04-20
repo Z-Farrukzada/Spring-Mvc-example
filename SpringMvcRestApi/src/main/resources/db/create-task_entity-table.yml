@@ -1,0 +1,72 @@
+databaseChangeLog:
+  -  changeSet:
+       id: 1
+       author: zaur
+       changes:
+         -  createTable:
+              tableName: task_entity
+              columns:
+                -  column:
+                     name: task_id
+                     type: SERIAL
+                     autoIncrement: true
+                     constraints:
+                       primaryKey: true
+                       nullable: false
+                -  column:
+                     name: comment_count
+                     type: INTEGER
+                -  column:
+                     name: completed
+                     type: BOOLEAN
+                     constraints:
+                       nullable: false
+                -  column:
+                     name: content
+                     type: varchar(50)
+                -  column:
+                     name: url
+                     type: varchar(255)
+                -  column:
+                     name: orderdata
+                     type: INTEGER
+                -  column:
+                     name: priority
+                     type: INTEGER
+                -  column:
+                     name: due_id
+                     type: INTEGER
+
+
+  - changeSet:
+      id: liquebase-default-insert-06
+      author: zaur
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: task_id
+                  value: '1'
+              - column:
+                  name: comment_count
+                  value: '3'
+              - column:
+                  name: completed
+                  value: false
+              - column:
+                  name: content
+                  value: 'default content'
+              - column:
+                  name: url
+                  value: 'https://google.com'
+              - column:
+                  name: orderdata
+                  value: '1'
+              - column:
+                  name: priority
+                  value: '1'
+              - column:
+                  name: due_id
+                  value: '1'
+            schemaName: public
+            tableName: task_entity
