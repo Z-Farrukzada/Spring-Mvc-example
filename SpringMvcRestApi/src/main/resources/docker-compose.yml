@@ -1,8 +1,25 @@
-version: '3.5'
+version: "3.4"
 
 services:
+  springMvcRestApi:
+    image: springbootproject:0.0.1
+    container_name: app
+    networks:
+      - postgres
+    ports:
+      -  8085:8085
+    depends_on:
+      - postgres
+      - pgadmin
+    links:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/reactiveDbcd?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 12345
+
   postgres:
-    container_name: postgres_container
+    container_name: postgres
     image: postgres
     environment:
       POSTGRES_USER: postgres
@@ -10,8 +27,10 @@ services:
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+    expose:
+      - 5432
     ports:
-      - "5432:5432"
+      - 5432:5432
     networks:
       - postgres
     restart: unless-stopped
